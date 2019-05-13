@@ -287,8 +287,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.28073594, y: 0.4197605, z: -0.13832064, w: -0.8519718}
+  m_LocalPosition: {x: 33.55959, y: 20.181322, z: -12.532011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 6062848127155134038, guid: 203196c2dc4ac407b83b78419aebe04a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6062848127155134038, guid: 203196c2dc4ac407b83b78419aebe04a,
         type: 3}
@@ -360,16 +360,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 984928251045811955, guid: 203196c2dc4ac407b83b78419aebe04a,
-        type: 3}
-      propertyPath: gridZise
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 984928251045811955, guid: 203196c2dc4ac407b83b78419aebe04a,
-        type: 3}
-      propertyPath: gridSise
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203196c2dc4ac407b83b78419aebe04a, type: 3}

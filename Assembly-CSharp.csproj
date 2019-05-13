@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EditorSnap.cs" />
+    <Compile Include="Assets\CubeEditor.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/luisfelipejimenez/Documents/Tutorials/UnityDeveloper3D/Real Rush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

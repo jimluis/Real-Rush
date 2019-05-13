@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{AD6CDFE8-A1E8-6591-E18F-543FCF36A674}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EditorSnap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CubeEditor.cs">
     <Files>
       <File FileName="../../Tanks/Assets/Scripts/Camera/CameraControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/EditorSnap.cs" Line="5" Column="3" />
+      <File FileName="Assets/CubeEditor.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
