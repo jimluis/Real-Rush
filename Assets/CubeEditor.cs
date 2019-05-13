@@ -4,10 +4,19 @@ using UnityEngine;
 
 [SelectionBase] 
 [ExecuteInEditMode]
+[RequireComponent(typeof(Waypoint))]
 public class CubeEditor : MonoBehaviour
 {
-    [Range(1f,10f)] [SerializeField] float gridSise = 10f;
+
     TextMesh textMesh;
+    Waypoint waypoint;
+    int gridSize = 0;
+
+    void Awake()
+    {
+        waypoint = GetComponent<Waypoint>();
+        gridSize = waypoint.GetGridSize();
+    }
 
     void Start()
     {
@@ -16,22 +25,23 @@ public class CubeEditor : MonoBehaviour
     }
     void Update()
     {
-        Vector3 snapPos;
+        SnapToGrid();
+        UpadateLabel();
+    }
 
-        float roundXPos = Mathf.RoundToInt(transform.position.x / gridSise);
-        snapPos.x = roundXPos * 10f;
 
-        float roundZPos = Mathf.RoundToInt(transform.position.z / gridSise);
-        snapPos.z = roundZPos * 10f;
+    void SnapToGrid()
+    {
 
-        transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
+        transform.position = new Vector3(waypoint.GetGridPos().x, 0f, waypoint.GetGridPos().y);
+    }
+
+    void UpadateLabel()
+    {
 
         textMesh = GetComponentInChildren<TextMesh>();
-        string labelTxt = snapPos.x / gridSise + "," + snapPos.z / gridSise; 
+        string labelTxt = waypoint.GetGridPos().x / gridSize + "," + waypoint.GetGridPos().y / gridSize;
         textMesh.text = labelTxt;
-
         gameObject.name = labelTxt;
-
-        Debug.Log("Editor causes this Update");
     }
 }
