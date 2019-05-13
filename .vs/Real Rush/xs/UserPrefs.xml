@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{AD6CDFE8-A1E8-6591-E18F-543FCF36A674}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CubeEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyMovement.cs">
     <Files>
       <File FileName="../../Tanks/Assets/Scripts/Camera/CameraControl.cs" Line="1" Column="1" />
       <File FileName="Assets/CubeEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Waypoint.cs" Line="5" Column="22" />
+      <File FileName="Assets/EnemyMovement.cs" Line="18" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

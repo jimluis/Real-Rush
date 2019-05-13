@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CubeEditor.cs" />
+    <Compile Include="Assets\EnemyMovement.cs" />
+    <Compile Include="Assets\Waypoint.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/luisfelipejimenez/Documents/Tutorials/UnityDeveloper3D/Real Rush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

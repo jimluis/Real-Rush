@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SelectionBase]
+[SelectionBase] 
 [ExecuteInEditMode]
 public class CubeEditor : MonoBehaviour
 {
@@ -27,9 +27,10 @@ public class CubeEditor : MonoBehaviour
         transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
 
         textMesh = GetComponentInChildren<TextMesh>();
-        textMesh.text = snapPos.x + "," + snapPos.z;
+        string labelTxt = snapPos.x / gridSise + "," + snapPos.z / gridSise; 
+        textMesh.text = labelTxt;
 
-       
+        gameObject.name = labelTxt;
 
         Debug.Log("Editor causes this Update");
     }
