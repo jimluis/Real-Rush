@@ -7,6 +7,8 @@ public class Waypoint : MonoBehaviour
     const int gridSize = 10;
     Vector2Int dridPos;
     public bool isExplored = false;
+    public Waypoint exploreFrom;
+
 
     public int GetGridSize()
     {
@@ -23,6 +25,7 @@ public class Waypoint : MonoBehaviour
         int roundXPos = Mathf.RoundToInt(transform.position.x / gridSize);
         int roundZPos = Mathf.RoundToInt(transform.position.z / gridSize);
 
+        //print("Grid pos: "+new Vector2Int(roundXPos, roundZPos));
         return new Vector2Int(roundXPos, roundZPos);
     }
 

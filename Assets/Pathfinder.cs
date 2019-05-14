@@ -9,44 +9,73 @@ public class Pathfinder : MonoBehaviour
     [SerializeField] Waypoint startWaypoint;
     [SerializeField] Waypoint endWayPoint;
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
-    Vector2Int[] directions = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
     Queue<Waypoint> queue = new Queue<Waypoint>();
-    bool isRunning = true;
+    private List<Waypoint> path = new List<Waypoint>();
 
-    void Start()
+
+
+    bool isRunning = true;
+    Waypoint searchCenter;
+
+    Vector2Int[] directions = { 
+        Vector2Int.up, 
+        Vector2Int.right, 
+        Vector2Int.down, 
+        Vector2Int.left };
+
+    public List<Waypoint> GetPath()
     {
         LoadBlocks();
         ColorStartAndEnd();
-        Pathfind();
+        BreadthFirstSeach();
+        CreatePath();
+        return path;
     }
 
-    private void Pathfind()
+
+    private void CreatePath()
+    {
+        path.Add(endWayPoint);
+
+        Waypoint previous = endWayPoint.exploreFrom;
+
+        while(previous != startWaypoint)
+        {
+            path.Add(previous);
+            previous = previous.exploreFrom;
+        }
+
+        path.Add(startWaypoint);
+        path.Reverse();
+    }
+
+    private void BreadthFirstSeach()
     {
         queue.Enqueue(startWaypoint);
 
         while(queue.Count > 0 && isRunning)
         {
-            var searchCenter = queue.Dequeue();
-            print("Searching for: " + searchCenter);
+            searchCenter = queue.Dequeue();
+            Debug.Log("Searching for: " + searchCenter);
             searchCenter.isExplored = true;
 
             if (searchCenter == endWayPoint)
             {
                 isRunning = false;
-                print("endWayPoint found!");
+                Debug.Log("endWayPoint found!");
                 break;
             }
 
-            ExploreNeighbours(searchCenter);
+            ExploreNeighbours();
 
 
 
         }
 
-        print("Finished Exploring?");
+        Debug.Log("Finished Exploring?");
     }
 
-    private void ExploreNeighbours(Waypoint from)
+    private void ExploreNeighbours()
     {
 
         if (!isRunning)
@@ -54,17 +83,15 @@ public class Pathfinder : MonoBehaviour
 
         foreach(Vector2Int direction in directions)
         {
-            Vector2Int neighboursCoordinates = from.GetGridPos() + direction;
+            Vector2Int neighboursCoordinates = searchCenter.GetGridPos() + direction;
+            Debug.Log("neighboursCoordinates: " + neighboursCoordinates);
 
-            try
-            {
-
-                    EnqueueNewNeighbours(neighboursCoordinates);
-            }
-            catch
-            {
-                print("Nothing to explore: " + neighboursCoordinates);
-            }
+            if(grid.ContainsKey(neighboursCoordinates))
+                EnqueueNewNeighbours(neighboursCoordinates);
+          
+            else
+                Debug.Log("Nothing to explore: " + neighboursCoordinates);
+            
 
             //print("Exploring: " + neighboursCoordinates);
         }
@@ -74,11 +101,12 @@ public class Pathfinder : MonoBehaviour
     {
         Waypoint neighbour = grid[neighboursCoordinates];
 
-        if (!neighbour.isExplored)
+        if (!neighbour.isExplored && !queue.Contains(neighbour))
         {
             neighbour.SetTopColor(Color.blue);
             queue.Enqueue(neighbour);
-            print("Enqueue neighbour: " + neighbour);
+            neighbour.exploreFrom = searchCenter;
+            Debug.Log("Enqueue neighbour: " + neighbour);
         }
 
     }
@@ -101,14 +129,14 @@ public class Pathfinder : MonoBehaviour
               //  waypoint.SetTopColor(Color.black);
             }
             else
-            { 
-            print("Overlapping block size: " + waypoint.GetGridPos());
+            {
+                Debug.Log("Overlapping block size: " + waypoint.GetGridPos());
 
             }
 
         }
 
-        print("Loaded dictionary size: " + grid.Count);
+        Debug.Log("Loaded dictionary size: " + grid.Count);
     }
 
     // Update is called once per frame
