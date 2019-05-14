@@ -6,22 +6,87 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
 
-    [SerializeField] Waypoint startPoint;
-    [SerializeField] Waypoint endPoint;
+    [SerializeField] Waypoint startWaypoint;
+    [SerializeField] Waypoint endWayPoint;
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
-
+    Vector2Int[] directions = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
+    Queue<Waypoint> queue = new Queue<Waypoint>();
+    bool isRunning = true;
 
     void Start()
     {
         LoadBlocks();
         ColorStartAndEnd();
+        Pathfind();
+    }
+
+    private void Pathfind()
+    {
+        queue.Enqueue(startWaypoint);
+
+        while(queue.Count > 0 && isRunning)
+        {
+            var searchCenter = queue.Dequeue();
+            print("Searching for: " + searchCenter);
+            searchCenter.isExplored = true;
+
+            if (searchCenter == endWayPoint)
+            {
+                isRunning = false;
+                print("endWayPoint found!");
+                break;
+            }
+
+            ExploreNeighbours(searchCenter);
+
+
+
+        }
+
+        print("Finished Exploring?");
+    }
+
+    private void ExploreNeighbours(Waypoint from)
+    {
+
+        if (!isRunning)
+            return;
+
+        foreach(Vector2Int direction in directions)
+        {
+            Vector2Int neighboursCoordinates = from.GetGridPos() + direction;
+
+            try
+            {
+
+                    EnqueueNewNeighbours(neighboursCoordinates);
+            }
+            catch
+            {
+                print("Nothing to explore: " + neighboursCoordinates);
+            }
+
+            //print("Exploring: " + neighboursCoordinates);
+        }
+    }
+
+    private void EnqueueNewNeighbours(Vector2Int neighboursCoordinates)
+    {
+        Waypoint neighbour = grid[neighboursCoordinates];
+
+        if (!neighbour.isExplored)
+        {
+            neighbour.SetTopColor(Color.blue);
+            queue.Enqueue(neighbour);
+            print("Enqueue neighbour: " + neighbour);
+        }
 
     }
 
     void ColorStartAndEnd()
     {
-        startPoint.SetTopColor(Color.green);
-        endPoint.SetTopColor(Color.red); 
+        startWaypoint.SetTopColor(Color.green);
+        endWayPoint.SetTopColor(Color.red); 
     }
 
     void LoadBlocks()
