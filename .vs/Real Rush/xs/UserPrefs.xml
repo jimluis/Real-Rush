@@ -1,17 +1,20 @@
 ﻿<Properties StartupConfiguration="{AD6CDFE8-A1E8-6591-E18F-543FCF36A674}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Pathfinder.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyMovement.cs">
     <Files>
-      <File FileName="Assets/CubeEditor.cs" Line="18" Column="43" />
-      <File FileName="Assets/Waypoint.cs" Line="17" Column="1" />
-      <File FileName="Assets/EnemyMovement.cs" Line="12" Column="32" />
-      <File FileName="Assets/Pathfinder.cs" Line="6" Column="14" />
+      <File FileName="Assets/Waypoint.cs" Line="9" Column="27" />
+      <File FileName="Assets/Pathfinder.cs" Line="26" Column="27" />
+      <File FileName="Assets/Tower.cs" Line="12" Column="6" />
+      <File FileName="Assets/Enemy.cs" Line="15" Column="24" />
+      <File FileName="Assets/EnemyMovement.cs" Line="14" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/luisfelipejimenez/Documents/Tutorials/UnityDeveloper3D/Real Rush/Assets/Pathfinder.cs" relfile="Assets/Pathfinder.cs" line="130" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

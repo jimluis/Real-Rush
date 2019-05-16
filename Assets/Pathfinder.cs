@@ -47,6 +47,12 @@ public class Pathfinder : MonoBehaviour
 
         path.Add(startWaypoint);
         path.Reverse();
+
+        //for(int i = 0; i < path.Count; i++)
+        //{
+        //    Debug.Log("path: " + path[i]);
+        //}
+
     }
 
     private void BreadthFirstSeach()
@@ -56,7 +62,7 @@ public class Pathfinder : MonoBehaviour
         while(queue.Count > 0 && isRunning)
         {
             searchCenter = queue.Dequeue();
-            Debug.Log("Searching for: " + searchCenter);
+           // Debug.Log("Searching for: " + searchCenter);
             searchCenter.isExplored = true;
 
             if (searchCenter == endWayPoint)
@@ -68,11 +74,9 @@ public class Pathfinder : MonoBehaviour
 
             ExploreNeighbours();
 
-
-
         }
 
-        Debug.Log("Finished Exploring?");
+        Debug.Log("Finished Exploring");
     }
 
     private void ExploreNeighbours()
@@ -84,13 +88,13 @@ public class Pathfinder : MonoBehaviour
         foreach(Vector2Int direction in directions)
         {
             Vector2Int neighboursCoordinates = searchCenter.GetGridPos() + direction;
-            Debug.Log("neighboursCoordinates: " + neighboursCoordinates);
+            //Debug.Log("neighboursCoordinates: " + neighboursCoordinates);
 
             if(grid.ContainsKey(neighboursCoordinates))
                 EnqueueNewNeighbours(neighboursCoordinates);
           
-            else
-                Debug.Log("Nothing to explore: " + neighboursCoordinates);
+            //else
+                //Debug.Log("Nothing to explore: " + neighboursCoordinates);
             
 
             //print("Exploring: " + neighboursCoordinates);
@@ -106,7 +110,7 @@ public class Pathfinder : MonoBehaviour
             neighbour.SetTopColor(Color.blue);
             queue.Enqueue(neighbour);
             neighbour.exploreFrom = searchCenter;
-            Debug.Log("Enqueue neighbour: " + neighbour);
+           // Debug.Log("Enqueue neighbour: " + neighbour);
         }
 
     }
@@ -120,13 +124,14 @@ public class Pathfinder : MonoBehaviour
     void LoadBlocks()
     {
         var waypoints = FindObjectsOfType<Waypoint>();
-
-        foreach(Waypoint waypoint in waypoints)
+        //Debug.Log(">>> waypoints size: " + waypoints);
+        foreach (Waypoint waypoint in waypoints)
         {
             if (!grid.ContainsKey(waypoint.GetGridPos()))
             { 
                 grid.Add(waypoint.GetGridPos(), waypoint);
-              //  waypoint.SetTopColor(Color.black);
+               // Debug.Log(">>>  waypoint.GetGridPos(): " + waypoint.GetGridPos());
+
             }
             else
             {

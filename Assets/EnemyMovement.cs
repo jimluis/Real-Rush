@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("****** Enemy Starting position: "+gameObject.transform.position);
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
         var path = pathfinder.GetPath();
 
@@ -17,25 +18,16 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator FollowPath(List<Waypoint> path)
     {
+        print("Starting patrol");
+
         foreach (Waypoint waypoint in path)
         {
-            print("Starting patrol");
-            transform.position = waypoint.transform.position;
-         //   print("waypoint.name: " + waypoint.name);
-            yield return new WaitForSeconds(1f);
 
-           
-            //InvokeRepeating("printHello", 0f, 1f);
+            transform.position = waypoint.transform.position;
+          //  print(">>> Inside - waypoint.name: " + waypoint.name);
+            yield return new WaitForSeconds(2f);
         }
         print("Ending patrol");
     }
-    //void printHello()
-    //{
-    //    print("Hello: ";
-    //}
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
