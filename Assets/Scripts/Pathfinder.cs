@@ -39,16 +39,19 @@ public class Pathfinder : MonoBehaviour
     private void CreatePath()
     {
         path.Add(endWayPoint);
-
+        endWayPoint.isPaceable = false;
         Waypoint previous = endWayPoint.exploreFrom;
 
         while(previous != startWaypoint)
         {
             path.Add(previous);
+            endWayPoint.isPaceable = false;
             previous = previous.exploreFrom;
+
         }
 
         path.Add(startWaypoint);
+        endWayPoint.isPaceable = false;
         path.Reverse();
 
         //for(int i = 0; i < path.Count; i++)
