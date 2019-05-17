@@ -20,6 +20,8 @@ public class Waypoint : MonoBehaviour
         
     }
 
+
+
     public Vector2Int GetGridPos()
     {
         int roundXPos = Mathf.RoundToInt(transform.position.x / gridSize);
@@ -35,5 +37,10 @@ public class Waypoint : MonoBehaviour
 
         MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
         topMeshRenderer.material.color = color;
+    }
+
+    void OnMouseOver()
+    {
+        Debug.Log(gameObject.name);
     }
 }

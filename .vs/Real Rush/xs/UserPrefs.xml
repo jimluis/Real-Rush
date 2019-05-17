@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{AD6CDFE8-A1E8-6591-E18F-543FCF36A674}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Waypoint.cs">
     <Files>
-      <File FileName="Assets/Waypoint.cs" Line="9" Column="27" />
-      <File FileName="Assets/Pathfinder.cs" Line="26" Column="27" />
-      <File FileName="Assets/Tower.cs" Line="12" Column="6" />
-      <File FileName="Assets/Enemy.cs" Line="15" Column="24" />
-      <File FileName="Assets/EnemyMovement.cs" Line="14" Column="28" />
+      <File FileName="Assets/Scripts/Tower.cs" Line="61" Column="27" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Pathfinder.cs" Line="34" Column="10" />
+      <File FileName="Assets/Scripts/EnemyMovement.cs" Line="27" Column="46" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="10" Column="41" />
+      <File FileName="Assets/Scripts/Waypoint.cs" Line="20" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -14,6 +15,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/luisfelipejimenez/Documents/Tutorials/UnityDeveloper3D/Real Rush/Assets/Pathfinder.cs" relfile="Assets/Pathfinder.cs" line="130" column="1" />
+      <Breakpoint file="/Users/luisfelipejimenez/Documents/Tutorials/UnityDeveloper3D/Real Rush/Assets/EnemyMovement.cs" relfile="Assets/EnemyMovement.cs" line="26" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

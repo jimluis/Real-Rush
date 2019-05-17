@@ -8,7 +8,6 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("****** Enemy Starting position: "+gameObject.transform.position);
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>();
         var path = pathfinder.GetPath();
 
