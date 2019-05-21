@@ -7,19 +7,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] int health = 20;
     [SerializeField] ParticleSystem hitParticlePrefab;
-    [SerializeField] ParticleSystem deathParticlePrefab;
+    [SerializeField] ParticleSystem goalParticlePrefab;
 
     void OnParticleCollision(GameObject other)
     {
         if (health == 0)
         {
-            var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
-            vfx.Play();
-            float destroyDelay = vfx.main.duration;
-            print("destroyDelay: "+ destroyDelay);
-
-            Destroy(vfx.gameObject, destroyDelay);
-            Destroy(gameObject);
+            DestroyEnemy();
         }
 
         else
@@ -31,4 +25,14 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void DestroyEnemy()
+    {
+        var vfx = Instantiate(goalParticlePrefab, transform.position, Quaternion.identity);
+        vfx.Play();
+        float destroyDelay = vfx.main.duration;
+        print("destroyDelay: " + destroyDelay);
+
+        Destroy(vfx.gameObject, destroyDelay);
+        Destroy(gameObject);
+    }
 }

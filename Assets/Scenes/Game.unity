@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15c8990b819f40bead1e20c976562d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenSpawns: 4
+  secondsBetweenSpawns: 0.75
   enemyMovement: {fileID: 114941686308246830, guid: 04f81ff9814844ccfa08226f8d46a3f4,
     type: 3}
   enemyParentTransform: {fileID: 15144595}
@@ -3548,6 +3548,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203196c2dc4ac407b83b78419aebe04a, type: 3}
+--- !u!1001 &2056659185
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1929956291960174, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_Name
+      value: Enemy goal arrival Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.309999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932202034452574, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514994110371806, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_Name
+      value: Green Chunks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249861368098962, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
+      propertyPath: m_Name
+      value: Yellow Spray
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 073af1b19b4894fd68a06c3f0ff9c05e, type: 3}
 --- !u!1001 &2090640632
 PrefabInstance:
   m_ObjectHideFlags: 0
