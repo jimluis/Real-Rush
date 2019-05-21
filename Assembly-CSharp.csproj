@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Pathfinder.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\TowerFactory.cs" />
     <Compile Include="Assets\Scripts\Waypoint.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/luisfelipejimenez/Documents/Tutorials/UnityDeveloper3D/Real Rush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

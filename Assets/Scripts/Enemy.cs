@@ -15,8 +15,9 @@ public class Enemy : MonoBehaviour
         {
             var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
             vfx.Play();
+
            // deathParticlePrefab.Play();
-            Destroy(gameObject);
+            Destroy(gameObject, 2f);
         }
 
         else
