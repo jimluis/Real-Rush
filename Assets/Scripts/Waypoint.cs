@@ -8,9 +8,7 @@ public class Waypoint : MonoBehaviour
     Vector2Int dridPos;
     public bool isExplored = false;
     public Waypoint exploreFrom;
-    public bool isPaceable = true;
-    [SerializeField] bool isTowerInPlace = false;
-    [SerializeField] Tower towerToPlace;
+    public bool isPlaceable = true;
 
     public int GetGridSize()
     {
@@ -44,17 +42,10 @@ public class Waypoint : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         { 
             //if(isPaceable && !isTowerInPlace)
-            if (isPaceable)
+            if (isPlaceable)
             { 
                 Debug.Log(gameObject.name+ " tower placement");
-
-                if(!isTowerInPlace)
-                { 
-                    Instantiate(towerToPlace, transform.position, Quaternion.identity);
-                    isTowerInPlace = true;
-                }
-                else
-                    Debug.Log("There is already a tower here!");
+                FindObjectOfType<TowerFactory>().AddTower(this);
             }
             else
                 Debug.Log("Can't place here");
