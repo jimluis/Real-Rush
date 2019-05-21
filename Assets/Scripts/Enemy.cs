@@ -15,9 +15,11 @@ public class Enemy : MonoBehaviour
         {
             var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
             vfx.Play();
+            float destroyDelay = vfx.main.duration;
+            print("destroyDelay: "+ destroyDelay);
 
-           // deathParticlePrefab.Play();
-            Destroy(gameObject, 2f);
+            Destroy(vfx.gameObject, destroyDelay);
+            Destroy(gameObject);
         }
 
         else
@@ -26,7 +28,7 @@ public class Enemy : MonoBehaviour
             hitParticlePrefab.Play();
         }
 
-        print("Enemy Hit - Health: ");
+
     }
 
 }

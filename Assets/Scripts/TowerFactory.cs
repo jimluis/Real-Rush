@@ -6,6 +6,7 @@ public class TowerFactory : MonoBehaviour
 {
     [SerializeField] int towerLimit = 5;
     [SerializeField] Tower towerToPlace;
+    [SerializeField] Transform towerParentTransform;
     Queue<Tower> towerQueue = new Queue<Tower>();
      
     public void AddTower(Waypoint baseWayPoint)
@@ -27,6 +28,7 @@ public class TowerFactory : MonoBehaviour
     {
         //Debug.Log("InstantiateNewTower");
         Tower newTower = Instantiate(towerToPlace, baseWayPoint.transform.position, Quaternion.identity);
+        newTower.transform.parent = towerParentTransform.transform;
         baseWayPoint.isPlaceable = false;
         newTower.baseWaypoint = baseWayPoint;
 
