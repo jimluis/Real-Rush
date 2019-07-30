@@ -1,15 +1,8 @@
 ﻿<Properties StartupConfiguration="{AD6CDFE8-A1E8-6591-E18F-543FCF36A674}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PostProcessing/Editor/PropertyDrawers/MinDrawer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerHealth.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tower.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Pathfinder.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemyMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="15" Column="5" />
-      <File FileName="Assets/Scripts/CubeEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TowerFactory.cs" Line="1" Column="1" />
-      <File FileName="Assets/PlayerHealth.cs" Line="21" Column="44" />
-      <File FileName="Assets/PostProcessing/Editor/PropertyDrawers/MinDrawer.cs" Line="6" Column="1" />
+      <File FileName="Assets/UIController.cs" Line="15" Column="38" />
+      <File FileName="Assets/Scripts/PlayerHealth.cs" Line="45" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
