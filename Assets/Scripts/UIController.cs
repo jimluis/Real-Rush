@@ -62,31 +62,34 @@ public class UIController : MonoBehaviour
         Debug.Log("DisplayTimeOutPanel - PlayerHealth._Instance.Health.ToString(): " + PlayerHealth._Instance.Health.ToString());
         string txt;
 
-         if(PlayerHealth._Instance.Health > 0)
+        if (PlayerHealth._Instance.Health > 0)
             txt = "You saved the tower";
-         else
+        else
             txt = "You've lost the tower";
 
         timeOutScore.text = txt;
         EnemySpawner.stopSpawning = false;
-
-}
+        isInstructionPanelDismissed = false;
+    }
 
     public void DisplayGameOverPanel()
     {
         Debug.Log("DisplayGameOverPanel - PlayerHealth._Instance.Health.ToString(): " + PlayerHealth._Instance.Health.ToString());
+        OnDestroyGameObj();
         lostPanel.SetActive(true);
         gameOverScore.text = "Score: "+PlayerHealth._Instance.Health.ToString();
         EnemySpawner.stopSpawning = false;
+        isInstructionPanelDismissed = false;
     }
 
     public void DisplayWinPanel()
     {
         Debug.Log("DisplayWinPanel - PlayerHealth._Instance.Health.ToString(): " + PlayerHealth._Instance.Health.ToString());
+        OnDestroyGameObj();
         WinPanel.SetActive(true);
         winScore.text = "Score: " + PlayerHealth._Instance.Health.ToString();
         EnemySpawner.stopSpawning = false;
-
+        isInstructionPanelDismissed = false;
     }
 
     public void DismissInstructionPanelPanel()
@@ -104,14 +107,6 @@ public class UIController : MonoBehaviour
         towerHealth.text = PlayerHealth._Instance.Health.ToString();
     }
 
-    void OnDisable()
-    {
-        CountDownTimer.timeOut -= DisplayTimeOutPanel;
-        PlayerHealth.playerDeath -= DisplayGameOverPanel;
-        PlayerHealth.updatedUITowerHealth -= updateMainTowerHealth;
-    }
-
-
 
     public void ToggleSoundImage()
     {
@@ -128,4 +123,13 @@ public class UIController : MonoBehaviour
             muteButton.GetComponent<Image>().sprite = muteImage;
         }
     }
+
+    void OnDisable()
+    {
+        CountDownTimer.timeOut -= DisplayTimeOutPanel;
+        PlayerHealth.playerDeath -= DisplayGameOverPanel;
+        PlayerHealth.updatedUITowerHealth -= updateMainTowerHealth;
+        isInstructionPanelDismissed = true;
+    }
+
 }

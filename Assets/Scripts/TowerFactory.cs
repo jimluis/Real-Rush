@@ -14,13 +14,10 @@ public class TowerFactory : MonoBehaviour
         //Debug.Log("AddTower - numTowers: "+ numTowers+ " - towerLimit" + towerLimit);
 
         if (towerQueue.Count < towerLimit)
-        {
             InstantiateNewTower(baseWayPoint);
-        }
         else 
-        {
             MoveExistingTower(baseWayPoint);
-        }
+        
 
     }
 

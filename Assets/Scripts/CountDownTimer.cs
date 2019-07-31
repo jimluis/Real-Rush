@@ -19,28 +19,30 @@ public class CountDownTimer : MonoBehaviour
     {
         timer = mainTimer;
         timerText = GetComponent<Text>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
         if(UIController.isInstructionPanelDismissed)
-        {
-            if (timer >= 0.0f && canCount)
-            {
-                timer -= Time.deltaTime;
-                timerText.text = timer.ToString("F");
-            }
-            else if (timer <= 0.0f && !doOnce)
-            {
-                canCount = false;
-                doOnce = true;
-                timerText.text = "0.00";
-                timer = 0.0f;
-                timeOut();
-            }
-        }
+            Timer();
 
+    }
+
+    private void Timer()
+    {
+        if (timer >= 0.0f && canCount)
+        {
+            timer -= Time.deltaTime;
+            timerText.text = timer.ToString("F");
+        }
+        else if (timer <= 0.0f && !doOnce)
+        {
+            canCount = false;
+            doOnce = true;
+            timerText.text = "0.00";
+            timer = 0.0f;
+            timeOut();
+        }
     }
 }
