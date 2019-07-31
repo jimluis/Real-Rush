@@ -13,7 +13,7 @@ public class CountDownTimer : MonoBehaviour
 
     public  delegate void TimeOver();
     public static event TimeOver timeOut;
-
+    public static bool isTimerRunning = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class CountDownTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(UIController.isInstructionPanelDismissed)
+        if(isTimerRunning)
             Timer();
 
     }

@@ -69,7 +69,7 @@ public class UIController : MonoBehaviour
 
         timeOutScore.text = txt;
         EnemySpawner.stopSpawning = false;
-        isInstructionPanelDismissed = false;
+        CountDownTimer.isTimerRunning = false;
     }
 
     public void DisplayGameOverPanel()
@@ -79,7 +79,7 @@ public class UIController : MonoBehaviour
         lostPanel.SetActive(true);
         gameOverScore.text = "Score: "+PlayerHealth._Instance.Health.ToString();
         EnemySpawner.stopSpawning = false;
-        isInstructionPanelDismissed = false;
+        CountDownTimer.isTimerRunning = false;
     }
 
     public void DisplayWinPanel()
@@ -89,7 +89,7 @@ public class UIController : MonoBehaviour
         WinPanel.SetActive(true);
         winScore.text = "Score: " + PlayerHealth._Instance.Health.ToString();
         EnemySpawner.stopSpawning = false;
-        isInstructionPanelDismissed = false;
+        CountDownTimer.isTimerRunning = false;
     }
 
     public void DismissInstructionPanelPanel()
@@ -97,8 +97,6 @@ public class UIController : MonoBehaviour
         instructionPanel.SetActive(false);
         isInstructionPanelDismissed = true;
         initSpawner();
-
-
     }
 
 
@@ -129,7 +127,6 @@ public class UIController : MonoBehaviour
         CountDownTimer.timeOut -= DisplayTimeOutPanel;
         PlayerHealth.playerDeath -= DisplayGameOverPanel;
         PlayerHealth.updatedUITowerHealth -= updateMainTowerHealth;
-        isInstructionPanelDismissed = true;
     }
 
 }
