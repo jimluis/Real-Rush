@@ -44,12 +44,12 @@ public class Waypoint : MonoBehaviour
             //if(isPaceable && !isTowerInPlace)
             if (isPlaceable)
             { 
-                Debug.Log(gameObject.name+ " tower placement");
+                //Debug.Log(gameObject.name+ " tower placement");
                 FindObjectOfType<TowerFactory>().AddTower(this);
             }
             else
                 Debug.Log("Can't place here");
         }
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
     }
 }

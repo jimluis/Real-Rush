@@ -9,8 +9,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] ParticleSystem hitParticlePrefab;
     [SerializeField] ParticleSystem goalParticlePrefab;
     [SerializeField] AudioClip enemyHitSFX;
-    //[SerializeField] AudioClip enemyDeathSFX;
+    [SerializeField] AudioClip enemyDeathSFX;
     AudioSource myAudioSource;
+
+    private void OnEnable()
+    {
+        UIController.OnDestroyGameObj += DestroyEnemy;
+    }
 
     void Start()
     {
@@ -21,6 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if (health == 0)
         {
+            Debug.Log("^Enemy.OnParticleCollision - health: " + health);
             DestroyEnemy();
         }
 
@@ -39,10 +45,14 @@ public class Enemy : MonoBehaviour
         var vfx = Instantiate(goalParticlePrefab, transform.position, Quaternion.identity);
         vfx.Play();
         float destroyDelay = vfx.main.duration;
-        print("destroyDelay: " + destroyDelay);
-        //AudioSource.PlayClipAtPoint(enemyDeathSFX,Camera.main.transform.position);
-     //   Debug.Break();
+        Debug.Log(">>Enemy.destroyDelay: " + destroyDelay);
+        myAudioSource.PlayOneShot(enemyDeathSFX);
         Destroy(vfx.gameObject, destroyDelay);
         Destroy(gameObject);
+    }
+
+    void OnDisable()
+    {
+        UIController.OnDestroyGameObj -= DestroyEnemy;
     }
 }

@@ -13,7 +13,13 @@ public class Tower : MonoBehaviour
     public Waypoint baseWaypoint;
 
     Transform targetEnemy;
-    
+
+
+    void OnEnable()
+    {
+        UIController.OnDestroyGameObj += OnDestroyTower;
+    }
+
     void Start()
     {
         var emissionModule = FindObjectOfType<ParticleSystem>().emission;
@@ -66,10 +72,10 @@ public class Tower : MonoBehaviour
     private void FireAtEnemy()
     {
 
+        Debug.Log("Tower.FireAtEnemy: " + EnemySpawner.stopSpawning);
         if (targetEnemy != null)
         {
             float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
-            //Debug.Log("distance: "+ distance);
 
             if (distanceToEnemy <= attackRange)
                 Shoot(true);
@@ -82,13 +88,18 @@ public class Tower : MonoBehaviour
 
     void Shoot(bool isActive)
     {
-        //if (isActive)
-        //    Debug.Log("----->>>> tower" + gameObject.name + " is shooting at distance: " + distanceToEnemy);
-        //else
-            //Debug.Log("tower" + gameObject.name + " is NOT shooting at distance: " + distanceToEnemy);
-
         var emissionModule = projectilParticle.emission;
         emissionModule.enabled = isActive;
 
+    }
+
+    void OnDestroyTower()
+    {
+       Destroy(this.gameObject);
+    }
+
+    void OnDisable()
+    {
+        UIController.OnDestroyGameObj -= OnDestroyTower;
     }
 }

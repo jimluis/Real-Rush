@@ -10,36 +10,40 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float secondsBetweenSpawns = 0.5f;
     [SerializeField] EnemyMovement enemyMovement;
     [SerializeField] Transform enemyParentTransform;
-    [SerializeField] Text spawnEnemies;
     [SerializeField] AudioClip spawnEnemiesSFX;
-    int score; 
 
-    void Start()
+    public static bool stopSpawning = true;
+
+    void OnEnable()
     {
+        UIController.initSpawner += StartSpawner;
+    }
+
+    public void StartSpawner()
+    {
+        Debug.Log(">>> EnemySpawner.StartSpawner(): stopSpawning "+ stopSpawning);
         StartCoroutine(Spawner());
-        spawnEnemies.text = score.ToString(); ;
     }
 
     IEnumerator Spawner()
     {
-        while(true)
-        {
-            score++;
-            spawnEnemies.text = score.ToString();
+        while(stopSpawning)
+        { 
+            Debug.Log(">>> Spawner EnemySpawner.StartSpawner()");
 
             var newEnemy = Instantiate(enemyMovement, transform.position, Quaternion.identity);
-            GetComponent<AudioSource>().PlayOneShot(spawnEnemiesSFX); 
-
+            GetComponent<AudioSource>().PlayOneShot(spawnEnemiesSFX);
             newEnemy.transform.parent = enemyParentTransform;
+
             Debug.Log("Spawing");
             yield return new WaitForSeconds(secondsBetweenSpawns);
+
         }
     }
 
-
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        stopSpawning = true;
+        UIController.initSpawner -= StartSpawner;
     }
 }

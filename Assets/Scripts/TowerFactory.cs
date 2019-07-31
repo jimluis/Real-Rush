@@ -34,7 +34,7 @@ public class TowerFactory : MonoBehaviour
 
         //put the new tower on the queue
         towerQueue.Enqueue(newTower);
-        Debug.Log("towerQueue.Count: "+ towerQueue.Count);
+        //Debug.Log("towerQueue.Count: "+ towerQueue.Count);
     }
 
     private void MoveExistingTower(Waypoint newbaseWayPoint)

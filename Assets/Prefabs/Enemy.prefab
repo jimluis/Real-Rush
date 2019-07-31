@@ -81,7 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   hitParticlePrefab: {fileID: 6812569392183963705}
-  goalParticlePrefab: {fileID: 0}
+  goalParticlePrefab: {fileID: 198537984209914932, guid: 073af1b19b4894fd68a06c3f0ff9c05e,
+    type: 3}
   enemyHitSFX: {fileID: 8300000, guid: 298611d989b5745048050e8599d35546, type: 3}
   enemyDeathSFX: {fileID: 8300000, guid: 991a9044a9cde419f99e037422e6beb3, type: 3}
 --- !u!82 &1627635228
