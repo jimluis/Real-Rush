@@ -10,20 +10,12 @@ public class MusicPlayer : MonoBehaviour
     Text text;
 
 
-    void Start()
-    {
-        UIController.soundControl += SoundController;
-    }
+
 
     void Awake()
     {
-
-        
-        //text = textButton.GetComponent<Text>();
         backgroundAudio.Play();
-
         int numMusicPlayers = FindObjectsOfType<MusicPlayer>().Length;
-      //  print("FindObjectOfType<MusicPlayer>() "+ FindObjectOfType<MusicPlayer>());
        
          if (numMusicPlayers > 1)
             Destroy(gameObject);
@@ -32,13 +24,29 @@ public class MusicPlayer : MonoBehaviour
             DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        UIController.soundControl += SoundController;
+    }
+
+    void Start()
+    {
+
+    }
+
     public void SoundController()
     {
+        Debug.Log("backgroundAudio: "+ backgroundAudio);
         if (backgroundAudio.isPlaying)
             backgroundAudio.Pause();
         else
             backgroundAudio.Play();
 
+    }
+
+    void OnDisable()
+    {
+        UIController.soundControl -= SoundController;
     }
 
 

@@ -127,6 +127,7 @@ public class UIController : MonoBehaviour
         CountDownTimer.timeOut -= DisplayTimeOutPanel;
         PlayerHealth.playerDeath -= DisplayGameOverPanel;
         PlayerHealth.updatedUITowerHealth -= updateMainTowerHealth;
+        CountDownTimer.isTimerRunning = true;
     }
 
 }

@@ -331,6 +331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AA Theme Reversed
       objectReference: {fileID: 0}
+    - target: {fileID: 8829511128600198909, guid: 3481cb20a0155431aa36d12f80cc2bd2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8829511128600198911, guid: 3481cb20a0155431aa36d12f80cc2bd2,
         type: 3}
       propertyPath: m_LocalPosition.x
